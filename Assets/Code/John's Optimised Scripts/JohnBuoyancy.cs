@@ -61,6 +61,8 @@ public class JohnBuoyancy : MonoBehaviour
     {
 		//using a coroutine to calculate forces rather then update - as we don't need the accuracy of update
         StartCoroutine(CalculateForcesCoroutine());
+
+		BoatCounter.instance.UpdateBoatCount(1);
     }
 
     void Update()
@@ -161,5 +163,6 @@ public class JohnBuoyancy : MonoBehaviour
 			OnDestroyed.Invoke(gameObject);
 		}
 		Destroy(gameObject);
+		BoatCounter.instance.UpdateBoatCount(-1);
 	}
 }
